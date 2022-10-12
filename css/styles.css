@@ -1,0 +1,62 @@
+body {
+	background-color: whitesmoke;
+}
+
+.cont {
+	margin-left: 10%;
+	margin-right: 10%;
+	width:80%;
+	position:relative;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+}
+
+h1 {
+	margin: 5%;
+	padding-top: 2%;
+}
+
+#meiv2_graph {
+	width: 48em;
+	height: 11em;
+	margin: 1%;
+	display: inline-block;
+	position: relative;
+	align-items: right;
+}
+#main_map_test {
+	position: relative;
+	margin: 10%;
+}
+
+#map_img_div {
+	position: relative;
+	margin: 6%;
+	margin-top: 2%;
+	opacity: 0.8;
+	text-align: center;
+}
+
+.slidecontainer {
+	margin:5%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 1%;
+	align-items: center;
+	position: sticky;
+	top: 1%;
+	border-color: lightblue;
+	border-style: ridge;
+	background-color: azure;
+	z-index: 1;
+}
+
+.slidecontainer h4{
+	display: inline;
+	margin-bottom: 2em;
+}
+
+p {
+	margin-left: 8em;
+	margin-right: 8em;
+}
