@@ -1,20 +1,30 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { "text": "El Niño-Southern Oscillation Index" },
+    "title": { "text": "Number of storms per year" },
     "width": "container",
     "height": "container",
     "params": [
         { "name": "yearSelect", "value": 2000,
-          "bind": {"element": "#t_slider"} }
-      ],
+          "bind": {"element": "#t_slider"}
+        }
+    ],
+    "transform": [
+        {
+            "calculate": "year(datum.TM)",
+            "as": "year"
+        },
+        {
+            "aggregate": [{"op": "count", "field": "year", "as": "yearCount"}]
+        }
+    ],
     "layer": [
         {
             "data": {
-                "url": "data/meiv2_clean.csv"
+                "url": "data/IDCKMSTM0S.csv"
             },
             "mark": "bar",
             "encoding": {
-                "y": { "aggregate": "mean", "field": "JJ", "title":"ENSO Index"},
+                "y": { "field": "yearCount", "type": "quantitative"},
                 "x": { "field": "year", "type": "ordinal" }
             }
         },
