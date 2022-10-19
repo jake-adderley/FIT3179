@@ -5,7 +5,7 @@ body {
 .cont {
 	margin-left: 10%;
 	margin-right: 10%;
-	width:80%;
+	width:75%;
 	position:relative;
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: white;
@@ -14,49 +14,74 @@ body {
 h1 {
 	margin: 5%;
 	padding-top: 2%;
+	text-align: center;
+}
+
+#graph_container_1 {
+	width: 70%;
+	display: block;
+	margin: auto;
 }
 
 #meiv2_graph {
-	width: 45em;
-	height: 10em;
-	margin: 1%;
+	width: 90%;
+	height: 12em;
+	margin: auto;
 	display: inline-block;
 	position: relative;
-	align-items: right;
+	text-align: center;
+}
+#storm_count_graph {
+	width: 90%;
+	height: 12em;
+	margin: auto;
+	display: inline-block;
+	position: relative;
+	text-align: center;
 }
 #main_map_test {
-	position: relative;
-	margin: 10%;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	width: 80%;
 }
-
-#map_img_div {
-	position: relative;
-	margin: 6%;
-	margin-top: 2%;
-	opacity: 0.8;
+#year_enso_graph {
+	width: 30%;
+	height: 8em;
+	margin-left: 5em;
+	top: 3em;
+	display: inline-block;
 	text-align: center;
 }
 
 .slidecontainer {
-	margin:5%;
-	margin-top: 1%;
-	margin-bottom: 1%;
+	margin: auto;
 	padding: 1%;
-	align-items: center;
-	position: sticky;
-	top: 1%;
-	border-color: lightblue;
-	border-style: ridge;
-	background-color: azure;
-	z-index: 1;
+	text-align: center;
+	display: inline-block;
+	margin-left: 10em;
+	margin-bottom: 2em;
+	width: 15%;
+	border-radius: 1em;
+	background-color: lightgray;
 }
 
 .slidecontainer h4{
 	display: inline;
-	margin-bottom: 2em;
+	margin-bottom: 1%;
 }
 
 p {
 	margin-left: 8em;
 	margin-right: 8em;
+}
+
+footer {
+	font-size: smaller;
+	width: 70%;
+	margin: auto;
+}
+h5 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }

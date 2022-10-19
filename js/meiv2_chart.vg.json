@@ -3,26 +3,32 @@
     "title": { "text": "El Niño-Southern Oscillation Index" },
     "width": "container",
     "height": "container",
-    "params": [
-        { "name": "yearSelect", "value": 2000,
-          "bind": {"element": "#t_slider"} }
-      ],
     "layer": [
         {
+            "transform": [{"filter":"year(datum.date) > 1990"}],
             "data": {
-                "url": "data/meiv2_clean.csv"
+                "url": "data/meiv2_cleaner.csv",
+                "format":{"type": "csv"}
             },
             "mark": "bar",
             "encoding": {
-                "y": { "aggregate": "mean", "field": "JJ", "title":"ENSO Index"},
-                "x": { "field": "year", "type": "ordinal" }
+                "y": { "field": "val", "type":"quantitative", "title":"ENSO Index"},
+                "x": { "field": "date", "type": "temporal","title":"Date", "axis": {"tickCount":{"interval": "year","step": 2}} },
+                "color": {"field": "val","type":"quantitative", "title":"Index", "scale": {"scheme":"redblue", "reverse":true}},
+                "tooltip": [
+                    {"field": "date", "type":"temporal", "title":"Date"},
+                    {"field": "val", "type":"quantitative", "title":"Index"}]
             }
         },
         {
-            "data": {"values": [{}]},
-            "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
+            "params": [{
+              "name": "brush",
+              "select": {"type": "interval", "encodings": ["x"]}
+            }],
+            "mark": "bar",
             "encoding": {
-              "x": {"datum": "2000"}
+              "x": {"field": "date", "bin": true,"title":null},
+              "y": {"aggregate": "count"}
             }
         }
     ]

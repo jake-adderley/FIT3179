@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Average Enso Index for year" },
+    "width": "container",
+    "height": "container",
+    "params": [
+        { "name": "yearSelect", "value": 2022,
+          "bind": {"element": "#t_slider"}
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "data/meiv2_cleaner.csv",
+                "format":{"type": "csv"}
+            },
+            "transform": [
+                {
+                    "filter": "year(datum.date) == yearSelect"
+                }
+            ],
+            "mark": "bar",
+            "encoding": {
+                "x": { "aggregate": "mean", "field":"val", "type": "quantitative", "title":"Average ENSO Index", "scale":{"domain":[-1, 1]} },
+                "color": {"aggregate": "mean", "field": "val","type":"quantitative", "title":"Index", "scale": {"scheme":"redblue", "domain":[-1, 1], "reverse":true}, "legend":null},
+                "tooltip": {"aggregate":"mean", "field": "val", "type":"quantitative", "title":"Avg Index", "format": ".2f"}
+            }
+        }
+    ]
+}

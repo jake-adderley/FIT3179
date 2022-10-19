@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { "text": "Number of storms per year" },
+    "title": { "text": "Number of tropical storms above category 2 per year" },
     "width": "container",
     "height": "container",
     "params": [
@@ -8,31 +8,28 @@
           "bind": {"element": "#t_slider"}
         }
     ],
-    "transform": [
-        {
-            "calculate": "year(datum.TM)",
-            "as": "year"
-        },
-        {
-            "aggregate": [{"op": "count", "field": "year", "as": "yearCount"}]
-        }
-    ],
     "layer": [
         {
             "data": {
-                "url": "data/IDCKMSTM0S.csv"
+                "url": "data/IDCKMSTM0S_clean.csv",
+                "format":{"type": "csv"}
             },
+            "transform": [
+                {
+                    "filter": "year(datum.TM) > 1990"
+                },
+                {
+                    "filter": "datum.SURFACE_CODE > 2"
+                }
+            ],
             "mark": "bar",
             "encoding": {
-                "y": { "field": "yearCount", "type": "quantitative"},
-                "x": { "field": "year", "type": "ordinal" }
-            }
-        },
-        {
-            "data": {"values": [{}]},
-            "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
-            "encoding": {
-              "x": {"datum": "2000"}
+                "x": { "timeUnit":"utcyear", "field": "TM", "type": "ordinal", "title":"Year"},
+                "y": { "aggregate": "count", "field":"DISTURBANCE_ID", "type": "quantitative", "title":"Number of storms" },
+                "color": {"aggregate": "count", "field":"DISTURBANCE_ID", "type": "quantitative","title":"Storms", "scale":{"scheme": "teals"}},
+                "tooltip": [
+                    {"timeUnit":"utcyear", "field": "TM", "type":"ordinal", "title":"Date"},
+                    {"aggregate": "count", "type":"quantitative", "title":"Storms"}]
             }
         }
     ]

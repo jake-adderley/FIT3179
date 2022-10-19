@@ -10,3 +10,7 @@ var vg_3 = "js/storm_count_chart.vg.json";
 vegaEmbed("#storm_count_graph", vg_3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
+var vg_4 = "js/yearly_enso.vg.json";
+vegaEmbed("#year_enso_graph", vg_4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);

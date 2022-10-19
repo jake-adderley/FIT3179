@@ -8,29 +8,37 @@
  
   
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  
+  <title>Data Visualisation II - 31445705</title>
 </head>
 
 <body>
     <div class="cont">
         <h1>Data Visualisation II - How well does El Nino/La Nina Predict the weather?</h1>
-        <p>PLACEHOLDER - Australia's weather is influenced by many climate drivers. El Niño and La Niña have perhaps the strongest influence on year-to-year climate variability in Australia. They are a part of a natural cycle known as the El Niño–Southern Oscillation (ENSO) and are associated with a sustained period (many months) of warming (El Niño) or cooling (La Niña) in the central and eastern tropical Pacific. The ENSO cycle loosely operates over timescales from one to eight years.</p>
+        
+        <p>The natural cycle known as the El Niño-Southern Oscillation (ENSO) is a major influence and climate driver in Australia. With cycles of one to eight years, El Niño and its counterpart La Niña are useful predictors of the general weather behavior in many circumstances. When a high ENSO Index is measured it means the cycle is in El Niño, while a negative index means La Niña.</p>
+        <div id="graph_container_1">
+            <div id="meiv2_graph"></div>
+            <div id="storm_count_graph"></div>
+        </div>
+        
+        <p>During El Niño periods there are,  on average, fewer tropical cyclones in Australia and a general decrease in rainfall. The opposite is true for La Niña, tending to increase rainfall and tropical storms.
+            While not the only factor that influences storms and rainfall, monitoring ENSO can be a good indicator as can be seen in the charts above and below.</p>
         <div class="slidecontainer">
-            <h4>Year:</h4>
-            <input type="range" min="1979" max="2022" value="2022" class="slider" id="t_slider"> <label for="t_slider" id="slider_note">2022</label>
-            <div id="meiv2_graph">
+            <h4>Year:</h4> <label for="t_slider" id="slider_note">2022</label>
+            <input type="range" min="1990" max="2022" value="2022" class="slider" id="t_slider">
         </div>
-        </div>
-        <p>PLACEHOLDER - On average, there are fewer tropical cyclones in the Australian region during El Niño years. This is particularly true around Queensland, where cyclones are half as likely to cross the coast during El Niño years compared to neutral years. This means a decreased likelihood of major damage and flooding related to strong winds, high seas and heavy rains associated with tropical cyclones</p>
+        <div id="year_enso_graph"></div>
+
         <div id="main_map_test"></div>
 
-        <div id="storm_count_graph"></div>
+        <footer>
+            Author: Jake Adderley, Student ID: 31445705
+            <h5>References</h5>
+            [1] Team, P., 2022. MEI.v2: NOAA Physical Sciences Laboratory. [online] Psl.noaa.gov. Available at: https://psl.noaa.gov/enso/mei/ [Accessed 10 October 2022]. <br>
+            [2] www.bom.gov.au. 2022. Tropical cyclone databases. [online] Available at: http://www.bom.gov.au/cyclone/tropical-cyclone-knowledge-centre/databases/ [Accessed 10 October 2022]. <br>
+            [3] www.bom.gov.au. 2022. What is Niño and how does it impact Australia?. [online] Available at: http://www.bom.gov.au/climate/updates/articles/a008-el-nino-and-australia.shtml [Accessed 10 October 2022].
 
-        <h3 style="text-align: center;">Total July precipitation</h3>
-        <div id="map_img_div"><img src="js/images/aus-precip-2022.png" id="map_img"></div>
-        
-
-        
+        </footer>
     </div>
 </body>
 <script src="js/vega_lite_vis.js"></script>
